@@ -19,12 +19,30 @@ const Container = styled.ul`
       font-size: 30px;
     }
   }
-  
+
   .slick-prev {
     left: 0;
   }
   .slick-next {
     right: 16px;
+  }
+
+  .slick-dots{
+    li{
+      margin: 0;
+      button{
+        &:before{
+          color: var(--white);
+        }
+      }
+      &.slick-active{
+        button{
+          &:before{
+            color: var(--primary);
+          }
+        }
+      }
+    }
   }
 `;
 
@@ -42,8 +60,8 @@ export const SliderItem = styled.li`
 const Slider = ({ children }) => (
   <Container>
     <SlickSlider {...{
-      dots: false,
-      infinite: false,
+      dots: true,
+      infinite: true,
       speed: 300,
       centerMode: false,
       variableWidth: true,
@@ -55,4 +73,4 @@ const Slider = ({ children }) => (
   </Container>
 );
 
-export default Slider; 
+export default Slider;

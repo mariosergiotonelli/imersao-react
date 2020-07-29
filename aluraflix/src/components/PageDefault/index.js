@@ -8,9 +8,14 @@ const Main = styled.main`
   color: var(--white);
   flex: 1;
   padding: 50px 5%;
+  &.page404{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
-function PageDefalt({children}){
+function pageDefault({children}){
   return(
     <React.Fragment>
       <Menu />
@@ -22,4 +27,4 @@ function PageDefalt({children}){
   );
 }
 
-export default PageDefalt;
+export default pageDefault;
