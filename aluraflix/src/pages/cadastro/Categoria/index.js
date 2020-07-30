@@ -1,39 +1,72 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
+import FormField from '../../../components/FormField';
 
 function CadastroCategoria() {
+  const valoresIniciais = {
+    nome: '',
+    descricao: '',
+    cor: '',
+  }
 
-  const [categorias, setCategorias] = useState(['teste']);
-  const [nomeDaCategoria, setNomeDaCategoria] = useState('Valor Inicial');
+  const [categorias, setCategorias] = useState([]);
+  const [values, setValues] = useState(valoresIniciais);
 
-  function funcaoHandleQueOErroPediu(infosDoEvento){
-    setNomeDaCategoria(infosDoEvento.target.value);
-    setCategorias([
-      ...categorias,
-      nomeDaCategoria
-    ]);
+  function setValue(chave, valor){
+    setValues({
+      ...values,
+      [chave]: valor,
+    })
+  }
+
+  function handleChange(infosDoEvento){
+    const { getAttribute, value} = infosDoEvento.target;
+    setValue(
+      infosDoEvento.target.getAttribute('name'),
+      infosDoEvento.target.value
+    );
   }
 
   function handleSubmit(e){
     e.preventDefault();
-    console.log('você tentou enviar form')
+    setCategorias([
+      ...categorias,
+      values.nome
+    ]);
 
+    setValues(valoresIniciais)
   }
 
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria: {nomeDaCategoria}</h1>
+      <h1>Cadastro de Categoria: {values.nome}</h1>
 
       <form onSubmit={handleSubmit}>
-        <label>
-          Nome da Categoria:
-          <input
-            type="text"
-            value={nomeDaCategoria}
-            onChange={funcaoHandleQueOErroPediu}
-          />
-        </label>
+
+        <FormField
+          label="Nome da Categoria "
+          type='text'
+          name='nome'
+          value={values.nome}
+          onChange={handleChange}
+        />
+
+        <FormField
+          label="Descrição "
+          type='text'
+          name='nome'
+          value={values.descricao}
+          onChange={handleChange}
+        />
+
+        <FormField
+          label="Cores "
+          type='color'
+          name='Cor'
+          value={values.cor}
+          onChange={handleChange}
+        />
 
         <button>
           Cadastrar
