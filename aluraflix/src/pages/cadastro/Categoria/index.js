@@ -76,17 +76,6 @@ function CadastroCategoria() {
           value={values.descricao}
           onChange={handleChange}
         />
-        {/* <div>
-          <label>
-            Descrição:
-            <textarea
-              type="text"
-              value={values.descricao}
-              name="descricao"
-              onChange={handleChange}
-            />
-          </label>
-        </div> */}
 
         <FormField
           label="Cor"
@@ -95,33 +84,21 @@ function CadastroCategoria() {
           value={values.cor}
           onChange={handleChange}
         />
-        {/* <div>
-          <label>
-            Cor:
-            <input
-              type="color"
-              value={values.cor}
-              name="cor"
-              onChange={handleChange}
-            />
-          </label>
-        </div> */}
 
-        <Button>
+        <button>
           Cadastrar
-        </Button>
+        </button>
       </form>
 
 
       <ul>
-        {categorias.map((categoria, indice) => {
-          return (
-            <li key={`${categoria}${indice}`}>
-              {categoria.titulo}
-            </li>
-          )
-        })}
-      </ul>
+        {categorias.map(categoria => (
+          <li key={categoria.titulo}>
+            <p>{categoria.titulo}</p>
+          </li>
+        ))}
+
+        </ul>
 
       <Link to="/">
         Ir para home
