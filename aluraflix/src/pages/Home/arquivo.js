@@ -45,19 +45,9 @@ function Home() {
             category={categoria}
           />
           )
-        
+
 
         })}
-
-
-
-
-
-
-
-
-
-
       </PageDefault>
     </div>
   );
