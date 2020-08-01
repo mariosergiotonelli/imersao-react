@@ -1,62 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import PageDefault from '../../../components/PageDefault';
+import Button from '../../../components/Button';
 import FormField from '../../../components/FormField';
+import PageDefault from '../../../components/PageDefault';
 import useForm from '../../../hooks/useForm';
+import categoriaRepository from '../../../repositories/categorias';
 
 function CadastroCategoria() {
-  const valoresIniciais = {
-    nome: '',
+  const [listaCategoria, setListaCategoria] = useState([]);
+  const { values: categoria, handleChange, clearForm } = useForm({
+    titulo: '',
     descricao: '',
     cor: '',
-  }
+  });
 
-  const {handleChange, values, clearForm} = useForm(valoresIniciais);
-  const [categorias, setCategorias] = useState([]);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    setListaCategoria([
+      ...listaCategoria,
+      categoria,
+    ]);
+
+    clearForm();
+  };
 
   useEffect(() => {
-    const URL = window.location.hostname.includes('localhost') ? 'http://localhost:8080/categorias' : 'https://tonelliflix.herokuapp.com/categorias';
-    console.log('url', URL)
-    fetch(URL)
-      .then(async (respostaDoServer) =>{
-      if(respostaDoServer.ok) {
-        const resposta = await respostaDoServer.json();
-        setCategorias(resposta);
-        return;
-      }
-      throw new Error('Não foi possível pegar os dados');
+    categoriaRepository
+      .getAll()
+      .then((response) => {
+        setListaCategoria(response);
       })
-
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.log(err.message);
+      });
   }, []);
 
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria: {values.nome}</h1>
+      <h1>Cadastro de Categoria</h1>
 
-      <form onSubmit={function handleSubmit(infosDoEvento) {
-          infosDoEvento.preventDefault();
-
-          setCategorias([
-            ...categorias,
-            values
-          ]);
-
-          clearForm()
-      }}>
-
+      <form onSubmit={handleSubmit}>
         <FormField
-          label="Nome da Categoria"
-          type="text"
-          name="nome"
-          value={values.nome}
+          label="Título"
+          name="titulo"
+          value={categoria.titulo}
           onChange={handleChange}
         />
 
         <FormField
           label="Descrição"
-          type="????"
+          type="textarea"
           name="descricao"
-          value={values.descricao}
+          value={categoria.descricao}
           onChange={handleChange}
         />
 
@@ -64,37 +61,30 @@ function CadastroCategoria() {
           label="Cor"
           type="color"
           name="cor"
-          value={values.cor}
+          value={categoria.cor}
           onChange={handleChange}
         />
 
-        <button>
+        <Button type="submit">
           Cadastrar
-        </button>
+        </Button>
       </form>
 
+      {listaCategoria.length === 0 && (<div>Loading...</div>)}
 
       <ul>
-        {categorias.length === 0 && (
-            <div>
-                Loading...
-            </div>
-        )}
-        {categorias.map((categoria, indice) => {
-          return (
-            <li key={`${categoria}${indice}`}>
-              {categoria.titulo}
-            </li>
-          )
-        })}
-
+        {listaCategoria.map((categoria) => (
+          <li key={categoria.titulo}>
+            {categoria.titulo}
+          </li>
+        ))}
       </ul>
 
       <Link to="/">
-        Ir para home
+        Ir para Home
       </Link>
     </PageDefault>
-  )
+  );
 }
 
 export default CadastroCategoria;

@@ -1,5 +1,4 @@
 const url = 'https://tonelliflix.herokuapp.com';
-
-export default{
+export default {
   url,
 }
