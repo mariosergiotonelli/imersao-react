@@ -42,9 +42,9 @@
       }
     },
     {
+      "id": 6,
       "titulo": "Séries",
       "cor": "#00ffbf",
-      "id": 6,
       "link_extra": {
         "text": "Lista das melhores séries"
       }

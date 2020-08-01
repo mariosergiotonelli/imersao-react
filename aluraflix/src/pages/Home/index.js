@@ -10,7 +10,8 @@ function Home() {
   const [dadosIniciais, setDadosIniciais] = useState({
     categorias: [],
   })
-
+  
+  console.log(dadosIniciais)
   useEffect(() => {
     categoriasRepository.getAllWithVideos()
     .then((categoriasComVideos) => {
@@ -24,30 +25,7 @@ function Home() {
 
       {dadosIniciais.length === 0 && (<div>Loading...</div>)}
 
-      {dadosIniciais.map((categoria, indice) => {
-        if (indice === 0) {
-          return (
-            <div key={categoria.id}>
-              <BannerMain
-                videoTitle={dadosIniciais[0].videos[0].titulo}
-                url={dadosIniciais[0].videos[0].url}
-                videoDescription={dadosIniciais[0].videos[0].description}
-              />
-              <Carousel
-                ignoreFirstVideo
-                category={dadosIniciais[0]}
-              />
-            </div>
-          );
-        }
-
-        return (
-          <Carousel
-            key={categoria.id}
-            category={categoria}
-          />
-        );
-      })}
+      
 
     </PageDefault>
   );
