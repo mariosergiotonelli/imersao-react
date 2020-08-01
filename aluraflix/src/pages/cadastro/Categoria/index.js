@@ -4,13 +4,12 @@ import PageDefault from '../../../components/PageDefault'
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
-import './styles.css';
 
 function CadastroCategoria() {
 
   const URL = window.location.hostname.includes('localhost')
     ? 'http://localhost:8080/categorias'
-    : 'https://lucasflix-api.herokuapp.com/categorias';
+    : 'https://tonelliflix.herokuapp.com/categorias';
 
   const valoresIniciais = {
     titulo: '',
@@ -88,21 +87,6 @@ function CadastroCategoria() {
 
           <Button>Cadastrar</Button>
         </form>
-      </div>
-
-
-      <div className="container">
-        <h1>Categorias cadastradas</h1>
-
-        <ul>
-          {categorias.map(categoria => (
-            <li key={categoria.titulo}>
-              <strong>Titulo</strong>
-              <p>{categoria.titulo}</p>
-            </li>
-          ))}
-
-        </ul>
       </div>
 
       <Link to="/">
