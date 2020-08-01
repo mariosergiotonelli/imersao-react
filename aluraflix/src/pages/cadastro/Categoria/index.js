@@ -6,8 +6,6 @@ import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
 import './styles.css';
 
-
-
 function CadastroCategoria() {
 
   const URL = window.location.hostname.includes('localhost')
@@ -94,8 +92,6 @@ function CadastroCategoria() {
 
 
       <div className="container">
-
-
         <h1>Categorias cadastradas</h1>
 
         <ul>
@@ -109,14 +105,11 @@ function CadastroCategoria() {
         </ul>
       </div>
 
-
       <Link to="/">
         Ir para Home
         </Link>
     </PageDefault>
   )
 }
-
-
 
 export default CadastroCategoria;
