@@ -26,15 +26,6 @@
         "text": "Canais sobre animes e desenhos",
         "url": ""
       }
-    },
-    {
-      "id": 4,
-      "titulo": "Games",
-      "cor": "red",
-      "link_extra": {
-        "text": "Vídeos sobre games",
-        "url": ""
-      }
     }
   ],
   "videos": [
@@ -42,7 +33,7 @@
       "id": 1,
       "categoriaId": 1,
       "titulo": "Dance Of Death",
-      "url": "https://www.youtube.com/watch?v=HfpYbWlGf9k"
+      "url": "https://www.youtube.com/watch?v=3659fTXvFts"
     },
     {
       "id": 2,
@@ -113,56 +104,26 @@
     {
       "id": 13,
       "categoriaId": 3,
-      "titulo": "Teste de Turing",
-      "url": "https://www.youtube.com/watch?v=BaPGU4JWa34"
+      "titulo": "Yu Yu Hakusho: Yusuke vs Toguro",
+      "url": "https://www.youtube.com/watch?v=vaix9ccF-XI"
     },
     {
       "id": 14,
       "categoriaId": 3,
-      "titulo": "O que é Data Science?",
-      "url": "https://www.youtube.com/watch?v=5b9Z8toVaAU&t=9s"
+      "titulo": "Shingeki no kyojin: Levi vs Bestial",
+      "url": "https://www.youtube.com/watch?v=Y-xLlZgng_o"
     },
     {
       "id": 15,
       "categoriaId": 3,
-      "titulo": "Melhor forma de aprender Python",
-      "url": "https://www.youtube.com/watch?v=Gojqw9BQ5qY"
+      "titulo": "Dragon Ball Z: Gohan vs Cell",
+      "url": "https://www.youtube.com/watch?v=FlPc9FJs-ZA"
     },
     {
       "id": 16,
       "categoriaId": 3,
-      "titulo": "Como ingressar no mercado de Data Science?",
-      "url": "https://www.youtube.com/watch?v=gxyjGmOV540"
-    },
-    {
-      "id": 17,
-      "categoriaId": 4,
-      "titulo": "Interestellar",
-      "url": "https://www.youtube.com/watch?v=frD_IiY_A3E"
-    },
-    {
-      "id": 18,
-      "categoriaId": 4,
-      "titulo": "Gattaca",
-      "url": "https://www.youtube.com/watch?v=Dl0tYLbrhhs"
-    },
-    {
-      "id": 19,
-      "categoriaId": 4,
-      "titulo": "A Chegada",
-      "url": "https://www.youtube.com/watch?v=rNciXGzYZms"
-    },
-    {
-      "id": 20,
-      "categoriaId": 4,
-      "titulo": "Feitiço do Tempo",
-      "url": "https://www.youtube.com/watch?v=zi8d69P9NvI"
-    },
-    {
-      "id": 21,
-      "categoriaId": 5,
-      "titulo": "Final Fantasy 7",
-      "url": "https://www.youtube.com/watch?v=I_ATSCTnUD8"
+      "titulo": "Hunter X Huner: Os 10 poderes de Nen mais legais",
+      "url": "https://www.youtube.com/watch?v=tnDXN4PqhHQ"
     },
     {
       "titulo": "Blood Brothers",
