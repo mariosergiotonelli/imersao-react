@@ -14,6 +14,8 @@ function Footer() {
           Imersão React da Alura
         </a>
       </p>
+
+      <p>Desenvolvido por <a target="_blank" href="http://mariotonelli.com.br/">Mário Tonelli</a></p>
     </FooterBase>
   );
 }

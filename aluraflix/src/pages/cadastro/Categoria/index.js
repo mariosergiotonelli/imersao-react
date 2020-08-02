@@ -86,12 +86,16 @@ function CadastroCategoria() {
           />
 
           <Button>Cadastrar</Button>
+
+          <Link to="/">
+            <Button className="irHome">
+              Ir para Home
+            </Button>
+        </Link>
+
         </form>
       </div>
 
-      <Link to="/">
-        Ir para Home
-        </Link>
     </PageDefault>
   )
 }
